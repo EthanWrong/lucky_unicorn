@@ -1,8 +1,9 @@
 """LU yes / no
-
+Puts the code created in v2 into a loop to make testing easier and more
+efficient
 """
 show_instructions = ""
-while not show_instructions in ("yes", "y", "no", "n"):
+while show_instructions != "x":
     # Ask the user if they have played before
     name = "Lucky Unicorns"
     show_instructions = input(f"Have you played {name} before >>> ").lower()
