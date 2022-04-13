@@ -36,10 +36,10 @@ def instructions():
     print("\nCost is $1.00 per round.\nI will generate a random token, \n"
           "and you have the chance to earn some money.\nTokens: \n a Donkey "
           "will earn you $0.00\n a Horse or Zebra will earn you $0.50 \n a "
-          "UNICORN will earn you $5.00\n** You can quit at any time by "
+          "UNICORN will earn you $5.00\nSimply type 'yes' to play, and\n** You"
+          " can quit at any time by "
           "answering 'no' **\nor until you run out of money. \nThe max you "
-          "can "
-          "spend on a game is $10.\n")
+          "can spend on a game is $10.\n")
 
 
 # function to get user balance
