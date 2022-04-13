@@ -69,6 +69,8 @@ def get_user_balance(minimum, maximum):
     return balance
 
 
+# function that encapsulates all the necessary functions for playing a
+# round. This makes it easier to loop the game.
 def play_round(balance):
     if balance > 0:
         balance = calc_balance(balance)
@@ -77,6 +79,8 @@ def play_round(balance):
         print("You are out of money, sorry.")
 
 
+# function that asks for a token to be generated and figures out the user's
+# balance
 def calc_balance(current_balance):
     winnings = generate_token()
     new_balance = float(current_balance + winnings - 1)
@@ -84,6 +88,7 @@ def calc_balance(current_balance):
     return new_balance
 
 
+# function that randomly generates a token
 def generate_token():
     number = random.randint(1, 100)
     if 1 <= number <= 50:
@@ -112,6 +117,7 @@ def generate_token():
     return winnings
 
 
+# function that is used to format text for greater aesthetic appeal
 # IMPORTANT! check that: width >= len(text) + 2
 def format_decorate(decoration, width, text, indent=0):
     if width < len(text) + 2:  # checks that the text can actually be decorated
@@ -134,6 +140,7 @@ def format_decorate(decoration, width, text, indent=0):
         print(top_bottom_row)
 
 
+# function that prints the final statement once the game is finished
 def final_display(balance):
     format_decorate("-", 40, "Betting finished")
     format_decorate("+", 40, f"Your final balance was ${balance:.2f}")
@@ -142,6 +149,7 @@ def final_display(balance):
 
 # main routine
 
+# Welcome screen
 format_decorate("=", 41, "Welcome to the Lucky Unicorn Game")
 played_before = yes_no("Have you played Lucky Unicorns before >>> ")
 
