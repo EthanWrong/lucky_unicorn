@@ -31,10 +31,15 @@ def yes_no(question_text):
 
 # function to display instructions
 def instructions():
-    print("**** How to Play ****")
-    print()
-    print("The rules of the game will go here")
-    print()
+    format_decorate("-", 64, "Instructions")
+    print("Play a game of tokens to raise money for Doctors without Borders")
+    print("\nCost is $1.00 per round.\nI will generate a random token, \n"
+          "and you have the chance to earn some money.\nTokens: \n a Donkey "
+          "will earn you $0.00\n a Horse or Zebra will earn you $0.50 \n a "
+          "UNICORN will earn you $5.00\n** You can quit at any time by "
+          "answering 'no' **\nor until you run out of money. \nThe max you "
+          "can "
+          "spend on a game is $10.\n")
 
 
 # function to get user balance
@@ -131,6 +136,12 @@ def format_decorate(decoration, width, text, indent=0):
         print(top_bottom_row)
 
 
+def final_display(balance):
+    format_decorate("-", 40, "Betting finished")
+    format_decorate("+", 40, f"Your final balance was ${balance:.2f}")
+    print("=============== Goodbye ================")
+
+
 # main routine
 
 format_decorate("=", 41, "Welcome to the Lucky Unicorn Game")
@@ -150,9 +161,8 @@ while user_balance >= 1:
     if confirm_play_round == "Yes":
         user_balance = play_round(user_balance)
     else:
-        format_decorate("-", 40, "Betting finished")
-        format_decorate("+", 40, f"Your final balance was ${user_balance:.2f}")
-        print("=============== Goodbye ================")
+        final_display(user_balance)
         break
-
-
+if user_balance < 1:
+    print("You are out of money, sorry. \nThanks for playing!")
+    final_display(user_balance)
